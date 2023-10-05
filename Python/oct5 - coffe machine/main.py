@@ -1,3 +1,6 @@
+# Coffee machine - start to order! #
+
+# Menu
 MENU = {
     "espresso": {
         "ingredients": {
@@ -25,6 +28,7 @@ MENU = {
     }
 }
 
+# Starting quantities 
 profit = 0
 resources = {
     "water": 300,
@@ -32,6 +36,7 @@ resources = {
     "coffee": 100
 }
 
+# Check for sufficient resources in the coffee machine
 def sufficient_resources(order):
     if (MENU[order]['ingredients']['water'] > resources['water'] or MENU[order]['ingredients']['milk'] > resources['milk']
             or MENU[order]['ingredients']['coffee'] > resources['coffee']):
@@ -40,6 +45,7 @@ def sufficient_resources(order):
     else:
         return True
 
+# Process the order
 def accounting(order,resources):
     print("Please Insert Coins")
     quarters = int(input("How many quarters?: "))
@@ -59,11 +65,8 @@ def accounting(order,resources):
         print(f"Here is your {order} ☕️. Enjoy!")
         return MENU[order]['cost']
 
-
-
-
+# Main operations
 is_on = True
-
 while is_on:
     # turn off = "off", report = "report"
     order = input(" What would you like? (espresso/latte/cappuccino): ").lower()
